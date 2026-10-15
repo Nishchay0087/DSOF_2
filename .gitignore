@@ -1,17 +1,60 @@
+# Python environments and caches (including nested training environments)
 .venv/
+.venv-*/
+venv/
 __pycache__/
+*.py[cod]
 .pytest_cache/
-*.pyc
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Local credentials; keep example configuration
 .env
-data/*
-!data/.gitkeep
-artifacts/*.joblib
-datasets/
-validation/*.log
-validation/*.png
+.env.*
+!.env.example
+!.env.*.example
 
-.venv-mac/
+# Frontend dependencies and build output
+node_modules/
+.pnpm-store/
+/frontend/dist/
+*.tsbuildinfo
 
-frontend/node_modules/
-frontend/dist/
-traindata/
+# Runtime data, tokens, host keys, and captures
+/data/*
+!/data/.gitkeep
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+*.pcap
+*.pcapng
+
+# Datasets and generated models; keep training scripts
+/datasets/
+/traindata/*
+!/traindata/*.py
+/artifacts/**/*.joblib
+/artifacts/**/*.pkl
+/artifacts/**/*.ubj
+/validation/**/*.joblib
+
+# Logs and coverage; keep documented validation reports
+*.log
+/validation/**/*.png
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Operating system and editor files
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
