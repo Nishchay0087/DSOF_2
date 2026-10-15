@@ -1,0 +1,92 @@
+{
+  "platform": "Windows",
+  "ready": true,
+  "interfaces": [
+    {
+      "id": "\\Device\\NPF_{68264CE5-C73C-4066-A9F8-2199615B07B1}",
+      "name": "Local Area Connection* 10",
+      "description": "WAN Miniport (Network Monitor)",
+      "loopback": false
+    },
+    {
+      "id": "\\Device\\NPF_{A705BE0C-0185-47F0-B26C-6FF93E4809DB}",
+      "name": "Local Area Connection* 9",
+      "description": "WAN Miniport (IPv6)",
+      "loopback": false
+    },
+    {
+      "id": "\\Device\\NPF_{459F6D36-DA43-4909-9950-F6B04186BB85}",
+      "name": "Local Area Connection* 8",
+      "description": "WAN Miniport (IP)",
+      "loopback": false
+    },
+    {
+      "id": "\\Device\\NPF_{2856CE9A-ECF4-4050-B8F3-9FC72076677B}",
+      "name": "Bluetooth Network Connection",
+      "description": "Bluetooth Device (Personal Area Network)",
+      "loopback": false
+    },
+    {
+      "id": "\\Device\\NPF_{0D77657E-B9BD-41BB-8303-6C709CAC2588}",
+      "name": "DELLPC",
+      "description": "Intel(R) Wi-Fi 6E AX211 160MHz",
+      "loopback": false
+    },
+    {
+      "id": "\\Device\\NPF_{AC19EC94-7EFF-4C87-B86F-77A754873F35}",
+      "name": "Local Area Connection* 2",
+      "description": "Microsoft Wi-Fi Direct Virtual Adapter #2",
+      "loopback": false
+    },
+    {
+      "id": "\\Device\\NPF_{F86D9463-4053-456B-A20B-AE667DAB7828}",
+      "name": "Local Area Connection* 1",
+      "description": "Microsoft Wi-Fi Direct Virtual Adapter",
+      "loopback": false
+    },
+    {
+      "id": "\\Device\\NPF_Loopback",
+      "name": "Loopback Pseudo-Interface 1",
+      "description": "Software Loopback Interface 1",
+      "loopback": true
+    }
+  ],
+  "errors": [],
+  "notes": [
+    "A successful collector startup verifies actual device access; interface enumeration alone does not prove capture permission."
+  ],
+  "scapy_version": "2.7.0",
+  "pcap_backend_available": true,
+  "selected_interface_probe": {
+    "state": "running",
+    "ready": true,
+    "interfaces": [
+      "\\Device\\NPF_Loopback"
+    ],
+    "last_packet_time": null,
+    "last_packet_epoch": null,
+    "last_error": null,
+    "captured_packets": 0,
+    "processed_packets": 0,
+    "queue_dropped_packets": 0,
+    "unsupported_packets": 0,
+    "oversized_packets": 0,
+    "callback_errors": 0,
+    "excluded_packets": 0,
+    "queue_capacity": 8192,
+    "scope_excluded_packets": 0,
+    "opened_interfaces": [
+      "\\Device\\NPF_Loopback"
+    ],
+    "interface_filters": {
+      "\\Device\\NPF_Loopback": "(tcp or udp) and not (port 2222 or port 3307 or port 5000 or port 8081) and (net 127.0.0.0/8 or host ::1)"
+    },
+    "kernel_dropped_packets": null,
+    "kernel_drop_statistics": "Unavailable through the Scapy capture abstraction; unknown, not zero",
+    "last_processing_latency_ms": null,
+    "max_processing_latency_ms": null,
+    "capture_filter": "(tcp or udp) and not (port 2222 or port 3307 or port 5000 or port 8081)",
+    "queue_depth": 0,
+    "drops": 0
+  }
+}

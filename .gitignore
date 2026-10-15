@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+data/*
+!data/.gitkeep
+artifacts/*.joblib
+datasets/
+validation/*.log
+validation/*.png
+
+.venv-mac/
+
+frontend/node_modules/
+frontend/dist/

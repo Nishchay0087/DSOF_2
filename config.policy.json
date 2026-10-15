@@ -1,0 +1,16 @@
+{
+  "Web Attacks": "web",
+  "Brute Force": "ssh",
+  "Bots": "web",
+  "DDoS": "web",
+  "DoS": "web",
+  "Port Scanning": "web",
+  "Bot": "web",
+  "DoS GoldenEye": "web",
+  "DoS Hulk": "web",
+  "DoS Slowhttptest": "web",
+  "DoS slowloris": "web",
+  "Heartbleed": "web",
+  "Infiltration": "web",
+  "PortScan": "web"
+}

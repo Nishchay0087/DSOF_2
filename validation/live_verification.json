@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-11",
+  "runs": [
+    {
+      "test_id": "1e6eb2aa-07ff-4d86-8983-60f48f6e84c3",
+      "kind": "sqli",
+      "origin": "manual_test",
+      "flow_id": "af3edab1-7edf-4b69-8788-a5f5e4cf609e",
+      "original_ml": {
+        "duration_ms": 4.4821999908890575,
+        "encoded_prediction": 4,
+        "feature_contract": "experimental_unverified",
+        "model_sha256": "86e5dd0e6afe353e3ee1b7488271e390a047ec8483cc540b526c1f74ca65e8f6",
+        "prediction": "Normal Traffic",
+        "probabilities": {
+          "Bots": 2.018864051933633e-06,
+          "Brute Force": 4.1954911011998774e-07,
+          "DDoS": 4.328936483943835e-06,
+          "DoS": 1.2306193639233243e-05,
+          "Normal Traffic": 0.9999738931655884,
+          "Port Scanning": 7.0133423832885455e-06,
+          "Web Attacks": 1.5794485511144707e-11
+        },
+        "probability": 0.9999738931655884,
+        "probability_calibrated": false
+      },
+      "feature_error": null,
+      "segmented_send": true,
+      "alert_id": "54984325-a5a8-593d-a26c-e6865418bd28",
+      "detecting_component": "HTTP rule",
+      "rules": [
+        {
+          "category": "Web Attacks",
+          "evidence": "OR 1=1",
+          "location": "query.value[0]",
+          "name": "sql_boolean_comparison"
+        }
+      ],
+      "deployment_id": "31432898-4dfc-46c0-a06c-d125f1f8f1b2",
+      "listening_verified": true,
+      "session_id": "e8198de7-3436-422e-a304-49aec2b63e63",
+      "dsi": {
+        "bounds": [
+          0,
+          100
+        ],
+        "inputs": {
+          "distinct_actions": 1,
+          "duration_seconds": 0.045142,
+          "interaction_count": 1,
+          "max_depth": 1
+        },
+        "kind": "observed-session heuristic",
+        "normalized": {
+          "distinct_actions": 0.2,
+          "duration_seconds": 0.00037618333333333336,
+          "interaction_count": 0.05,
+          "max_depth": 0.25
+        },
+        "normalizers": {
+          "distinct_actions": 5,
+          "duration_seconds": 120,
+          "interaction_count": 20,
+          "max_depth": 4
+        },
+        "provisional": false,
+        "score": 10.5113,
+        "version": "dsof-observed-engagement-v1",
+        "weights": {
+          "distinct_actions": 0.2,
+          "duration_seconds": 0.3,
+          "interaction_count": 0.3,
+          "max_depth": 0.2
+        }
+      },
+      "verified": "actual captured request, alert, listener, follow-up session and reproducible DSI"
+    },
+    {
+      "test_id": "00a1c1a2-b53b-4c0b-ab2c-dafcfe50e758",
+      "kind": "xss",
+      "origin": "manual_test",
+      "flow_id": "b379fd46-6202-4a2c-80b0-19a0cb2d4f88",
+      "original_ml": {
+        "duration_ms": 2.5935999874491245,
+        "encoded_prediction": 4,
+        "feature_contract": "experimental_unverified",
+        "model_sha256": "86e5dd0e6afe353e3ee1b7488271e390a047ec8483cc540b526c1f74ca65e8f6",
+        "prediction": "Normal Traffic",
+        "probabilities": {
+          "Bots": 9.705281627248041e-07,
+          "Brute Force": 6.057675250303873e-07,
+          "DDoS": 5.845001396664884e-06,
+          "DoS": 1.1198458196304273e-05,
+          "Normal Traffic": 0.999970555305481,
+          "Port Scanning": 1.080056608770974e-05,
+          "Web Attacks": 2.1938274114008394e-11
+        },
+        "probability": 0.999970555305481,
+        "probability_calibrated": false
+      },
+      "feature_error": null,
+      "segmented_send": false,
+      "alert_id": "a28ef6ee-a731-5160-ac5a-188242535410",
+      "detecting_component": "HTTP rule",
+      "rules": [
+        {
+          "category": "Web Attacks",
+          "evidence": "<script",
+          "location": "query.value[0]",
+          "name": "xss_script_tag"
+        }
+      ],
+      "deployment_id": "31432898-4dfc-46c0-a06c-d125f1f8f1b2",
+      "listening_verified": true,
+      "session_id": "0047c325-fdcc-4464-9f26-a425cf18f702",
+      "dsi": {
+        "bounds": [
+          0,
+          100
+        ],
+        "inputs": {
+          "distinct_actions": 1,
+          "duration_seconds": 0.03062,
+          "interaction_count": 1,
+          "max_depth": 1
+        },
+        "kind": "observed-session heuristic",
+        "normalized": {
+          "distinct_actions": 0.2,
+          "duration_seconds": 0.00025516666666666667,
+          "interaction_count": 0.05,
+          "max_depth": 0.25
+        },
+        "normalizers": {
+          "distinct_actions": 5,
+          "duration_seconds": 120,
+          "interaction_count": 20,
+          "max_depth": 4
+        },
+        "provisional": false,
+        "score": 10.5077,
+        "version": "dsof-observed-engagement-v1",
+        "weights": {
+          "distinct_actions": 0.2,
+          "duration_seconds": 0.3,
+          "interaction_count": 0.3,
+          "max_depth": 0.2
+        }
+      },
+      "verified": "actual captured request, alert, listener, follow-up session and reproducible DSI"
+    },
+    {
+      "test_id": "dd8d9835-3098-4cfa-9ffb-e3908d3ccf3e",
+      "kind": "traversal",
+      "origin": "manual_test",
+      "flow_id": "2bcf2053-0f70-4a16-b7ee-bbcdf070f13b",
+      "original_ml": {
+        "duration_ms": 4.30400000186637,
+        "encoded_prediction": 4,
+        "feature_contract": "experimental_unverified",
+        "model_sha256": "86e5dd0e6afe353e3ee1b7488271e390a047ec8483cc540b526c1f74ca65e8f6",
+        "prediction": "Normal Traffic",
+        "probabilities": {
+          "Bots": 1.2237845794516033e-06,
+          "Brute Force": 5.345248155208537e-07,
+          "DDoS": 5.845001851412235e-06,
+          "DoS": 1.1198460015293676e-05,
+          "Normal Traffic": 0.9999706745147705,
+          "Port Scanning": 1.0480015589564573e-05,
+          "Web Attacks": 2.0129582029015936e-11
+        },
+        "probability": 0.9999706745147705,
+        "probability_calibrated": false
+      },
+      "feature_error": null,
+      "segmented_send": false,
+      "alert_id": "28b9a8e1-6ac4-5b1a-ab9a-43a56f39df3a",
+      "detecting_component": "HTTP rule",
+      "rules": [
+        {
+          "category": "Web Attacks",
+          "evidence": "../",
+          "location": "query.value[0]",
+          "name": "path_traversal"
+        }
+      ],
+      "deployment_id": "31432898-4dfc-46c0-a06c-d125f1f8f1b2",
+      "listening_verified": true,
+      "session_id": "5e6dfab0-597d-47e9-b1f8-c4734769eb83",
+      "dsi": {
+        "bounds": [
+          0,
+          100
+        ],
+        "inputs": {
+          "distinct_actions": 1,
+          "duration_seconds": 0.01958,
+          "interaction_count": 1,
+          "max_depth": 1
+        },
+        "kind": "observed-session heuristic",
+        "normalized": {
+          "distinct_actions": 0.2,
+          "duration_seconds": 0.00016316666666666666,
+          "interaction_count": 0.05,
+          "max_depth": 0.25
+        },
+        "normalizers": {
+          "distinct_actions": 5,
+          "duration_seconds": 120,
+          "interaction_count": 20,
+          "max_depth": 4
+        },
+        "provisional": false,
+        "score": 10.5049,
+        "version": "dsof-observed-engagement-v1",
+        "weights": {
+          "distinct_actions": 0.2,
+          "duration_seconds": 0.3,
+          "interaction_count": 0.3,
+          "max_depth": 0.2
+        }
+      },
+      "verified": "actual captured request, alert, listener, follow-up session and reproducible DSI"
+    },
+    {
+      "test_id": "8bf81ec7-2b8b-49d7-8094-a33ce3accb9f",
+      "kind": "benign",
+      "origin": "manual_test",
+      "flow_id": "cbe0206a-1197-466f-bf18-6e4f72dcd0bc",
+      "original_ml": {
+        "duration_ms": 6.58569997176528,
+        "encoded_prediction": 4,
+        "feature_contract": "experimental_unverified",
+        "model_sha256": "86e5dd0e6afe353e3ee1b7488271e390a047ec8483cc540b526c1f74ca65e8f6",
+        "prediction": "Normal Traffic",
+        "probabilities": {
+          "Bots": 1.203906322189141e-06,
+          "Brute Force": 6.05176751378167e-07,
+          "DDoS": 5.839301138621522e-06,
+          "DoS": 1.1187537893420085e-05,
+          "Normal Traffic": 0.9989953637123108,
+          "Port Scanning": 0.0009858239209279418,
+          "Web Attacks": 2.4736650228174284e-11
+        },
+        "probability": 0.9989953637123108,
+        "probability_calibrated": false
+      },
+      "feature_error": null,
+      "segmented_send": false,
+      "http_rule_false_positive": false,
+      "ml_alerts": [],
+      "verified": "fresh captured benign flow; no HTTP rule match"
+    }
+  ],
+  "collector": {
+    "callback_errors": 0,
+    "capture_filter": "(tcp or udp) and not (port 2222 or port 3307 or port 5000 or port 8081)",
+    "captured_packets": 74,
+    "drops": 0,
+    "excluded_packets": 0,
+    "interface_filters": {
+      "\\Device\\NPF_Loopback": "(tcp or udp) and not (port 2222 or port 3307 or port 5000 or port 8081) and (net 127.0.0.0/8 or host ::1)"
+    },
+    "interfaces": [
+      "\\Device\\NPF_Loopback"
+    ],
+    "kernel_drop_statistics": "Unavailable through the Scapy capture abstraction; unknown, not zero",
+    "kernel_dropped_packets": null,
+    "last_error": null,
+    "last_packet_epoch": 1791698586.561352,
+    "last_packet_time": "2026-10-11T06:03:06.561352+00:00",
+    "last_processing_latency_ms": 0.27409999165683985,
+    "max_processing_latency_ms": 5.665200005751103,
+    "opened_interfaces": [
+      "\\Device\\NPF_Loopback"
+    ],
+    "oversized_packets": 0,
+    "processed_packets": 74,
+    "queue_capacity": 8192,
+    "queue_depth": 0,
+    "queue_dropped_packets": 0,
+    "ready": true,
+    "scope_excluded_packets": 0,
+    "state": "running",
+    "unsupported_packets": 0
+  }
+}

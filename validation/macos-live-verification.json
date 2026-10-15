@@ -1,0 +1,531 @@
+[
+  {
+    "test_id": "7872ce56-18af-48fa-bc3b-2b096de78b3c",
+    "kind": "sqli",
+    "origin": "manual_test",
+    "flow_id": "1397e215-d79f-45e9-a1a2-deedff43de63",
+    "original_ml": {
+      "prediction": "BENIGN",
+      "encoded_prediction": 0,
+      "probability": 0.8855528831481934,
+      "probabilities": {
+        "BENIGN": 0.8855528831481934,
+        "Bot": 0.041393280029296875,
+        "DDoS": 0.004516595043241978,
+        "DoS GoldenEye": 0.004722245503216982,
+        "DoS Hulk": 0.03279490023851395,
+        "DoS Slowhttptest": 0.00934529583901167,
+        "DoS slowloris": 0.007815062068402767,
+        "Heartbleed": 0.004545095842331648,
+        "Infiltration": 0.004459904972463846,
+        "PortScan": 0.0048547228798270226
+      },
+      "feature_contract": "experimental_unverified",
+      "probability_calibrated": false,
+      "duration_ms": 2.4697499902686104,
+      "preprocessing": "reconstructed_standard_scaler",
+      "model_sha256": "7a347072cb2afeb39eb7e4737df080d5e4d99caf495f42ebed0e5d47d7077aa3"
+    },
+    "http_ml": {
+      "prediction": "SQL_INJECTION",
+      "probability": 0.9630841753202535,
+      "attack": true,
+      "probabilities": {
+        "BENIGN": 0.03004541142521808,
+        "SQL_INJECTION": 0.9630841753202535,
+        "XSS": 0.006870413254528318
+      },
+      "location": "query.value[0]",
+      "available": true,
+      "threshold": 0.85,
+      "inspected_fields": 3,
+      "coverage": "complete",
+      "model_sha256": "d37d6d5baf068864865fc8db7398e5d8bcb7420b7686cf212cc02b3a5d6bf2a3",
+      "version": "http-content-v1",
+      "probability_calibrated": false,
+      "training_data": "synthetic"
+    },
+    "feature_error": null,
+    "segmented_send": true,
+    "alert_id": "0dede047-4050-5a7d-93df-1ef40a9d9aa6",
+    "detecting_component": "HTTP ML + HTTP rule",
+    "rules": [
+      {
+        "name": "sql_boolean_comparison",
+        "category": "Web Attacks",
+        "evidence": "OR 1=1",
+        "location": "query.value[0]"
+      }
+    ],
+    "deployment_id": "666c6a99-2d0c-413a-b75b-ea2518bd1ff2",
+    "listening_verified": true,
+    "session_id": "aab0fc69-c3ec-40f8-a2de-4fd8fe8fe8c3",
+    "dsi": {
+      "version": "dsof-observed-engagement-v1",
+      "kind": "observed-session heuristic",
+      "score": 10.5005,
+      "inputs": {
+        "duration_seconds": 0.001809,
+        "interaction_count": 1,
+        "distinct_actions": 1,
+        "max_depth": 1
+      },
+      "weights": {
+        "duration_seconds": 0.3,
+        "interaction_count": 0.3,
+        "distinct_actions": 0.2,
+        "max_depth": 0.2
+      },
+      "normalizers": {
+        "duration_seconds": 120,
+        "interaction_count": 20,
+        "distinct_actions": 5,
+        "max_depth": 4
+      },
+      "provisional": false,
+      "bounds": [
+        0,
+        100
+      ],
+      "normalized": {
+        "duration_seconds": 1.5075e-05,
+        "interaction_count": 0.05,
+        "distinct_actions": 0.2,
+        "max_depth": 0.25
+      }
+    },
+    "evaluation": {
+      "version": "dsof-eidp-v1",
+      "score": 42.4753,
+      "components": {
+        "engagement": 2.5008,
+        "intelligence": 22.0,
+        "diversion": 100.0,
+        "persistence": 100
+      },
+      "weights": {
+        "engagement": 0.35,
+        "intelligence": 0.3,
+        "diversion": 0.2,
+        "persistence": 0.15
+      },
+      "provisional": false,
+      "inputs": {
+        "duration_seconds": 0.001809,
+        "interaction_count": 1,
+        "distinct_actions": 1,
+        "max_depth": 1
+      },
+      "prior_sessions_24h": 40,
+      "protected_connections_during_session": 0,
+      "coverage": {
+        "protected_ports": [
+          9090
+        ],
+        "interfaces": [
+          "lo0"
+        ],
+        "collector_ready": true,
+        "kernel_drops": "unknown",
+        "scope": "Configured interfaces and ports only; source IP is not an identity"
+      },
+      "evaluated_at": "2026-10-14T05:55:11.887+00:00",
+      "meaning": "Diversion is this observed honeypot connection divided by it plus protected-service connections during this session; not causal proof of prevention",
+      "reason": null,
+      "persistence_sample_limit": 10000
+    },
+    "attacker_profile": {
+      "version": "behavior-v1",
+      "level": "Beginner",
+      "window_seconds": 600,
+      "observed_flows": 1,
+      "distinct_ports": 1,
+      "distinct_destinations": 1,
+      "sample_limit": 1000,
+      "meaning": "Heuristic behavior tier; source addresses may represent multiple users"
+    },
+    "strategy_decision": {
+      "version": "dsof-feedback-v1",
+      "selected": "web",
+      "fallback": "web",
+      "score_basis": "dsof-observed-engagement-v1",
+      "reason": "configured_policy",
+      "minimum_samples": 3,
+      "minimum_improvement": 5,
+      "candidates": [],
+      "learning_origin": "live",
+      "meaning": "Observed engagement comparison; not a causal effectiveness estimate"
+    },
+    "verified": "actual captured request, alert, listener, follow-up session and reproducible DSI"
+  },
+  {
+    "test_id": "47c68985-2266-4f2b-a88c-1c8d78724152",
+    "kind": "xss",
+    "origin": "manual_test",
+    "flow_id": "29dd42c0-ddcc-4f5a-9f5d-0d2163ca9b94",
+    "original_ml": {
+      "prediction": "BENIGN",
+      "encoded_prediction": 0,
+      "probability": 0.8617585897445679,
+      "probabilities": {
+        "BENIGN": 0.8617585897445679,
+        "Bot": 0.041929472237825394,
+        "DDoS": 0.005768235307186842,
+        "DoS GoldenEye": 0.005965203512459993,
+        "DoS Hulk": 0.027424756437540054,
+        "DoS Slowhttptest": 0.011805095709860325,
+        "DoS slowloris": 0.011532565578818321,
+        "Heartbleed": 0.005741422530263662,
+        "Infiltration": 0.0056408969685435295,
+        "PortScan": 0.022433744743466377
+      },
+      "feature_contract": "experimental_unverified",
+      "probability_calibrated": false,
+      "duration_ms": 3.253165996284224,
+      "preprocessing": "reconstructed_standard_scaler",
+      "model_sha256": "7a347072cb2afeb39eb7e4737df080d5e4d99caf495f42ebed0e5d47d7077aa3"
+    },
+    "http_ml": {
+      "prediction": "XSS",
+      "probability": 0.9924844986670008,
+      "attack": true,
+      "probabilities": {
+        "BENIGN": 0.005402027886201225,
+        "SQL_INJECTION": 0.0021134734467978342,
+        "XSS": 0.9924844986670008
+      },
+      "location": "query.value[0]",
+      "available": true,
+      "threshold": 0.85,
+      "inspected_fields": 3,
+      "coverage": "complete",
+      "model_sha256": "d37d6d5baf068864865fc8db7398e5d8bcb7420b7686cf212cc02b3a5d6bf2a3",
+      "version": "http-content-v1",
+      "probability_calibrated": false,
+      "training_data": "synthetic"
+    },
+    "feature_error": null,
+    "segmented_send": false,
+    "alert_id": "bca82680-3c98-5a15-becc-b5abbe78a12d",
+    "detecting_component": "HTTP ML + HTTP rule",
+    "rules": [
+      {
+        "name": "xss_script_tag",
+        "category": "Web Attacks",
+        "evidence": "<script",
+        "location": "query.value[0]"
+      }
+    ],
+    "deployment_id": "666c6a99-2d0c-413a-b75b-ea2518bd1ff2",
+    "listening_verified": true,
+    "session_id": "1a36d198-1bde-462b-822f-4a6e991283d0",
+    "dsi": {
+      "version": "dsof-observed-engagement-v1",
+      "kind": "observed-session heuristic",
+      "score": 10.5005,
+      "inputs": {
+        "duration_seconds": 0.002187,
+        "interaction_count": 1,
+        "distinct_actions": 1,
+        "max_depth": 1
+      },
+      "weights": {
+        "duration_seconds": 0.3,
+        "interaction_count": 0.3,
+        "distinct_actions": 0.2,
+        "max_depth": 0.2
+      },
+      "normalizers": {
+        "duration_seconds": 120,
+        "interaction_count": 20,
+        "distinct_actions": 5,
+        "max_depth": 4
+      },
+      "provisional": false,
+      "bounds": [
+        0,
+        100
+      ],
+      "normalized": {
+        "duration_seconds": 1.8225000000000003e-05,
+        "interaction_count": 0.05,
+        "distinct_actions": 0.2,
+        "max_depth": 0.25
+      }
+    },
+    "evaluation": {
+      "version": "dsof-eidp-v1",
+      "score": 42.4753,
+      "components": {
+        "engagement": 2.5009,
+        "intelligence": 22.0,
+        "diversion": 100.0,
+        "persistence": 100
+      },
+      "weights": {
+        "engagement": 0.35,
+        "intelligence": 0.3,
+        "diversion": 0.2,
+        "persistence": 0.15
+      },
+      "provisional": false,
+      "inputs": {
+        "duration_seconds": 0.002187,
+        "interaction_count": 1,
+        "distinct_actions": 1,
+        "max_depth": 1
+      },
+      "prior_sessions_24h": 41,
+      "protected_connections_during_session": 0,
+      "coverage": {
+        "protected_ports": [
+          9090
+        ],
+        "interfaces": [
+          "lo0"
+        ],
+        "collector_ready": true,
+        "kernel_drops": "unknown",
+        "scope": "Configured interfaces and ports only; source IP is not an identity"
+      },
+      "evaluated_at": "2026-10-14T05:55:14.234+00:00",
+      "meaning": "Diversion is this observed honeypot connection divided by it plus protected-service connections during this session; not causal proof of prevention",
+      "reason": null,
+      "persistence_sample_limit": 10000
+    },
+    "attacker_profile": {
+      "version": "behavior-v1",
+      "level": "Beginner",
+      "window_seconds": 600,
+      "observed_flows": 2,
+      "distinct_ports": 2,
+      "distinct_destinations": 1,
+      "sample_limit": 1000,
+      "meaning": "Heuristic behavior tier; source addresses may represent multiple users"
+    },
+    "strategy_decision": {
+      "version": "dsof-feedback-v1",
+      "selected": "web",
+      "fallback": "web",
+      "score_basis": "dsof-observed-engagement-v1",
+      "reason": "configured_policy",
+      "minimum_samples": 3,
+      "minimum_improvement": 5,
+      "candidates": [],
+      "learning_origin": "live",
+      "meaning": "Observed engagement comparison; not a causal effectiveness estimate"
+    },
+    "verified": "actual captured request, alert, listener, follow-up session and reproducible DSI"
+  },
+  {
+    "test_id": "eee74bf5-a86c-48ec-bfeb-779fb6784545",
+    "kind": "traversal",
+    "origin": "manual_test",
+    "flow_id": "74514c61-aae6-478b-8a45-77c0bd8e81f5",
+    "original_ml": {
+      "prediction": "BENIGN",
+      "encoded_prediction": 0,
+      "probability": 0.8621039986610413,
+      "probabilities": {
+        "BENIGN": 0.8621039986610413,
+        "Bot": 0.041946280747652054,
+        "DDoS": 0.005770547315478325,
+        "DoS GoldenEye": 0.005967594217509031,
+        "DoS Hulk": 0.027435747906565666,
+        "DoS Slowhttptest": 0.011809827759861946,
+        "DoS slowloris": 0.011537187732756138,
+        "Heartbleed": 0.005743723828345537,
+        "Infiltration": 0.005637189839035273,
+        "PortScan": 0.02204788103699684
+      },
+      "feature_contract": "experimental_unverified",
+      "probability_calibrated": false,
+      "duration_ms": 1.8840830016415566,
+      "preprocessing": "reconstructed_standard_scaler",
+      "model_sha256": "7a347072cb2afeb39eb7e4737df080d5e4d99caf495f42ebed0e5d47d7077aa3"
+    },
+    "http_ml": {
+      "prediction": "BENIGN",
+      "probability": 0.9774908596579432,
+      "attack": false,
+      "probabilities": {
+        "BENIGN": 0.9774908596579432,
+        "SQL_INJECTION": 0.012460855232944849,
+        "XSS": 0.010048285109111942
+      },
+      "location": "query.key[0]",
+      "available": true,
+      "threshold": 0.85,
+      "inspected_fields": 3,
+      "coverage": "complete",
+      "model_sha256": "d37d6d5baf068864865fc8db7398e5d8bcb7420b7686cf212cc02b3a5d6bf2a3",
+      "version": "http-content-v1",
+      "probability_calibrated": false,
+      "training_data": "synthetic"
+    },
+    "feature_error": null,
+    "segmented_send": false,
+    "alert_id": "c8ff8a14-fe89-5c2e-8838-24a8d982fee8",
+    "detecting_component": "HTTP rule",
+    "rules": [
+      {
+        "name": "path_traversal",
+        "category": "Web Attacks",
+        "evidence": "../",
+        "location": "query.value[0]"
+      }
+    ],
+    "deployment_id": "666c6a99-2d0c-413a-b75b-ea2518bd1ff2",
+    "listening_verified": true,
+    "session_id": "78536830-8d77-41c2-b60a-463c96992559",
+    "dsi": {
+      "version": "dsof-observed-engagement-v1",
+      "kind": "observed-session heuristic",
+      "score": 10.5005,
+      "inputs": {
+        "duration_seconds": 0.002027,
+        "interaction_count": 1,
+        "distinct_actions": 1,
+        "max_depth": 1
+      },
+      "weights": {
+        "duration_seconds": 0.3,
+        "interaction_count": 0.3,
+        "distinct_actions": 0.2,
+        "max_depth": 0.2
+      },
+      "normalizers": {
+        "duration_seconds": 120,
+        "interaction_count": 20,
+        "distinct_actions": 5,
+        "max_depth": 4
+      },
+      "provisional": false,
+      "bounds": [
+        0,
+        100
+      ],
+      "normalized": {
+        "duration_seconds": 1.689166666666667e-05,
+        "interaction_count": 0.05,
+        "distinct_actions": 0.2,
+        "max_depth": 0.25
+      }
+    },
+    "evaluation": {
+      "version": "dsof-eidp-v1",
+      "score": 42.4753,
+      "components": {
+        "engagement": 2.5008,
+        "intelligence": 22.0,
+        "diversion": 100.0,
+        "persistence": 100
+      },
+      "weights": {
+        "engagement": 0.35,
+        "intelligence": 0.3,
+        "diversion": 0.2,
+        "persistence": 0.15
+      },
+      "provisional": false,
+      "inputs": {
+        "duration_seconds": 0.002027,
+        "interaction_count": 1,
+        "distinct_actions": 1,
+        "max_depth": 1
+      },
+      "prior_sessions_24h": 42,
+      "protected_connections_during_session": 0,
+      "coverage": {
+        "protected_ports": [
+          9090
+        ],
+        "interfaces": [
+          "lo0"
+        ],
+        "collector_ready": true,
+        "kernel_drops": "unknown",
+        "scope": "Configured interfaces and ports only; source IP is not an identity"
+      },
+      "evaluated_at": "2026-10-14T05:55:16.750+00:00",
+      "meaning": "Diversion is this observed honeypot connection divided by it plus protected-service connections during this session; not causal proof of prevention",
+      "reason": null,
+      "persistence_sample_limit": 10000
+    },
+    "attacker_profile": {
+      "version": "behavior-v1",
+      "level": "Beginner",
+      "window_seconds": 600,
+      "observed_flows": 3,
+      "distinct_ports": 3,
+      "distinct_destinations": 1,
+      "sample_limit": 1000,
+      "meaning": "Heuristic behavior tier; source addresses may represent multiple users"
+    },
+    "strategy_decision": {
+      "version": "dsof-feedback-v1",
+      "selected": "web",
+      "fallback": "web",
+      "score_basis": "dsof-observed-engagement-v1",
+      "reason": "configured_policy",
+      "minimum_samples": 3,
+      "minimum_improvement": 5,
+      "candidates": [],
+      "learning_origin": "live",
+      "meaning": "Observed engagement comparison; not a causal effectiveness estimate"
+    },
+    "verified": "actual captured request, alert, listener, follow-up session and reproducible DSI"
+  },
+  {
+    "test_id": "e449c8aa-e2e0-4d81-bd0d-1bf4136f262b",
+    "kind": "benign",
+    "origin": "manual_test",
+    "flow_id": "3cffd112-4a7e-43db-b796-a65461d8a827",
+    "original_ml": {
+      "prediction": "BENIGN",
+      "encoded_prediction": 0,
+      "probability": 0.8617637157440186,
+      "probabilities": {
+        "BENIGN": 0.8617637157440186,
+        "Bot": 0.04192972183227539,
+        "DDoS": 0.005768269766122103,
+        "DoS GoldenEye": 0.005965238902717829,
+        "DoS Hulk": 0.027424920350313187,
+        "DoS Slowhttptest": 0.011805166490375996,
+        "DoS slowloris": 0.011532634496688843,
+        "Heartbleed": 0.005741456523537636,
+        "Infiltration": 0.005634964909404516,
+        "PortScan": 0.022433878853917122
+      },
+      "feature_contract": "experimental_unverified",
+      "probability_calibrated": false,
+      "duration_ms": 3.3185829961439595,
+      "preprocessing": "reconstructed_standard_scaler",
+      "model_sha256": "7a347072cb2afeb39eb7e4737df080d5e4d99caf495f42ebed0e5d47d7077aa3"
+    },
+    "http_ml": {
+      "prediction": "BENIGN",
+      "probability": 0.9862044483121762,
+      "attack": false,
+      "probabilities": {
+        "BENIGN": 0.9862044483121762,
+        "SQL_INJECTION": 0.008098928308979793,
+        "XSS": 0.005696623378843962
+      },
+      "location": "path",
+      "available": true,
+      "threshold": 0.85,
+      "inspected_fields": 3,
+      "coverage": "complete",
+      "model_sha256": "d37d6d5baf068864865fc8db7398e5d8bcb7420b7686cf212cc02b3a5d6bf2a3",
+      "version": "http-content-v1",
+      "probability_calibrated": false,
+      "training_data": "synthetic"
+    },
+    "feature_error": null,
+    "segmented_send": false,
+    "http_rule_false_positive": false,
+    "ml_alerts": [],
+    "verified": "fresh captured benign flow; no HTTP rule match"
+  }
+]

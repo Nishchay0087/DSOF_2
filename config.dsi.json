@@ -1,0 +1,4 @@
+{
+  "weights": {"duration_seconds": 0.3, "interaction_count": 0.3, "distinct_actions": 0.2, "max_depth": 0.2},
+  "normalizers": {"duration_seconds": 120, "interaction_count": 20, "distinct_actions": 5, "max_depth": 4}
+}

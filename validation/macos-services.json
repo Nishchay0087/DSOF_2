@@ -1,0 +1,20 @@
+[
+  {
+    "service": "ssh",
+    "protocol": "ssh",
+    "deployment_id": "2ab22055-d72b-49b3-a6b1-daef44ce4a66",
+    "session_id": "295c2bbd-4fa7-4aac-9e21-0d254d196894",
+    "interactions": 2,
+    "verified": "real localhost connection and persisted completed session",
+    "procedure": "manual local acceptance test; not an external attack"
+  },
+  {
+    "service": "database",
+    "protocol": "line",
+    "deployment_id": "3b2937a3-b5d7-40ed-a924-9a3d015d96e3",
+    "session_id": "afd6e9f8-a142-4848-9a5d-ab954b2dae52",
+    "interactions": 3,
+    "verified": "real localhost connection and persisted completed session",
+    "procedure": "manual local acceptance test; not an external attack"
+  }
+]

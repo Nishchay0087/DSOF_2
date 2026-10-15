@@ -1,0 +1,127 @@
+{
+  "version": "http-content-v1",
+  "classes": [
+    "BENIGN",
+    "SQL_INJECTION",
+    "XSS"
+  ],
+  "threshold": 0.85,
+  "model_sha256": "d37d6d5baf068864865fc8db7398e5d8bcb7420b7686cf212cc02b3a5d6bf2a3",
+  "dataset_sha256": "67e6fa4be7db0c313cf24a5294bb41a2212064df2154e10ddbe7775bd890ac3e",
+  "training_rows": 472,
+  "reports": {
+    "validation": {
+      "classification_report": {
+        "BENIGN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 48.0
+        },
+        "SQL_INJECTION": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 24.0
+        },
+        "XSS": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 24.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 96.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 96.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          48,
+          0,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          0,
+          24
+        ]
+      ],
+      "rows": 96
+    },
+    "test": {
+      "classification_report": {
+        "BENIGN": {
+          "precision": 0.9333333333333333,
+          "recall": 1.0,
+          "f1-score": 0.9655172413793104,
+          "support": 112.0
+        },
+        "SQL_INJECTION": {
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1-score": 0.8571428571428571,
+          "support": 32.0
+        },
+        "XSS": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 32.0
+        },
+        "accuracy": 0.9545454545454546,
+        "macro avg": {
+          "precision": 0.9777777777777779,
+          "recall": 0.9166666666666666,
+          "f1-score": 0.9408866995073891,
+          "support": 176.0
+        },
+        "weighted avg": {
+          "precision": 0.9575757575757575,
+          "recall": 0.9545454545454546,
+          "f1-score": 0.9520824003582624,
+          "support": 176.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          112,
+          0,
+          0
+        ],
+        [
+          8,
+          24,
+          0
+        ],
+        [
+          0,
+          0,
+          32
+        ]
+      ],
+      "rows": 176
+    }
+  },
+  "provenance": "Project-authored synthetic field examples; template families assigned to splits before expansion. Not a public or real-world benchmark.",
+  "limits": [
+    "Synthetic examples do not establish real-world accuracy.",
+    "Held-out templates share attack syntax; this is not independent-source validation.",
+    "Encoded inputs use bounded URL decoding; encrypted HTTPS content is unavailable.",
+    "Probabilities are uncalibrated."
+  ]
+}

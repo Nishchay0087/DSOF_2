@@ -1,0 +1,4 @@
+........................................................................ [ 90%]
+........                                                                 [100%]
+-- generated xml file: C:\Users\nishc\Desktop\dsop_re\validation\pytest.xml ---
+80 passed in 27.13s

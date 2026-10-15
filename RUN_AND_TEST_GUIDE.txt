@@ -1,0 +1,352 @@
+DSOF — COMPLETE MAC STARTUP AND DEMONSTRATION GUIDE
+==================================================
+Project: /Users/nishchay/Documents/dsop_re
+Dashboard: http://127.0.0.1:5050/
+
+Copy only the command lines into Terminal, not the explanations.
+The Python path starts with a dot: .venv-mac/bin/python
+Run these tests on this local project. The example payloads are inert strings;
+the demonstration servers do not execute SQL or JavaScript payloads.
+
+1. OPEN THREE TERMINAL TABS
+--------------------------
+Terminal A: backend (leave running).
+Terminal B: packet capture (leave running).
+Terminal C: tests, token lookup and service connections.
+Use Command+T in Terminal to open another tab.
+
+If the dashboard and capture are already running, skip to step 4.
+Do not start a second backend over the existing one.
+
+2. START THE BACKEND — TERMINAL A
+--------------------------------
+cd /Users/nishchay/Documents/dsop_re
+sh tools/run_local.sh run
+
+Expected: Uvicorn running on http://127.0.0.1:5050
+Keep this Terminal open. It will not return to the command prompt while running.
+
+3. START PACKET CAPTURE — TERMINAL B
+-----------------------------------
+cd /Users/nishchay/Documents/dsop_re
+sh tools/capture_macos.sh
+
+Enter your Mac administrator password if requested. Terminal does not display
+password characters as you type. This password is different from the app token.
+Expected: listening on lo0. Leave the command running.
+
+If it says the FIFO is missing, run the following once and retry capture:
+sh tools/prepare_capture.sh
+sh tools/capture_macos.sh
+
+Whenever you restart the backend, stop the old capture command with Ctrl+C,
+then start it again. If capture exits, inspect its final Terminal error.
+
+4. CHECK READINESS — TERMINAL C
+-------------------------------
+cd /Users/nishchay/Documents/dsop_re
+sh tools/run_local.sh check
+
+Expected: "ready": true.
+Open http://127.0.0.1:5050/ in your browser.
+Overview should show Traffic capture: Ready and XGBoost classifier: Ready.
+Capture currently covers localhost/loopback traffic on this Mac.
+
+5. RUN THE MAIN HTTP ML DEMONSTRATION — TERMINAL C
+-------------------------------------------------
+.venv-mac/bin/python tools/verify_http_ml.py
+
+Expected three PASS lines:
+  sqli: HTTP ML SQL_INJECTION
+  xss: HTTP ML XSS
+  benign: HTTP ML BENIGN
+
+This sends actual network requests, waits for captured flows and predictions,
+checks attack alerts, connects to the automatically deployed web decoy, and
+checks recorded sessions and reproducible DSI scores. The benign case must
+produce no alert. Exact prediction probabilities can vary with model changes.
+
+These smoke requests use known syntax; they are not an independent accuracy test.
+Saved evidence: validation/http-ml-live.json
+
+For the broader HTTP-rule/pipeline test (including traversal), run:
+.venv-mac/bin/python tools/verify_live.py
+
+Expected four PASS lines: SQL, XSS, traversal, benign.
+Traversal is covered by HTTP rules. The HTTP ML model has only BENIGN,
+SQL_INJECTION and XSS labels, so do not expect a traversal ML class.
+Saved evidence: validation/macos-live-verification.json
+
+6. SEND INDIVIDUAL CONTROLLED REQUESTS — TERMINAL C
+-------------------------------------------------
+SQL injection indicator:
+.venv-mac/bin/python tools/fresh_test.py --base-url http://127.0.0.1:5050 --attack sqli
+
+XSS indicator:
+.venv-mac/bin/python tools/fresh_test.py --base-url http://127.0.0.1:5050 --attack xss
+
+Traversal indicator:
+.venv-mac/bin/python tools/fresh_test.py --base-url http://127.0.0.1:5050 --attack traversal
+
+Benign control:
+.venv-mac/bin/python tools/fresh_test.py --base-url http://127.0.0.1:5050 --benign
+
+Repeat a SQL test with a 10-second pause between completed runs:
+.venv-mac/bin/python tools/fresh_test.py --base-url http://127.0.0.1:5050 --attack sqli --loop --interval 10
+
+Press Ctrl+C in this test Terminal to stop the loop.
+The interval is added after each test finishes; total spacing can exceed 10 seconds.
+These scripts register a test UUID, so records appear under Controlled tests.
+
+7. FIND THE RESULTS IN THE DASHBOARD
+-----------------------------------
+A. Traffic: select Origin -> Controlled tests near the top of the page.
+   The HTTP ML prediction column shows SQL_INJECTION, XSS or BENIGN, the
+   predicted-class probability and whether the threshold was met.
+   "Not inspected" means there is no stored HTTP content result for that flow.
+   Click a row to see full evidence, including the separate flow-model result.
+
+B. Detections: use Origin -> Controlled tests. Look at recent timestamps.
+   SQL/XSS alerts can show "HTTP ML + HTTP rule".
+   The classification "Web Attacks" is the orchestration category; the
+   specific learned label is in HTTP ML. A BENIGN flow-model prediction does
+   not overwrite the independent HTTP-content prediction.
+
+C. Honeypots: the Web application card should show Listening after a qualifying
+   web detection. Starting a listener alone does not create an engagement session.
+
+D. Sessions: use Origin -> Controlled tests. Click the session ID in the first
+   column. The Session evidence panel opens below the table. Scroll there if
+   necessary. It shows recorded interactions and the four EIDP components.
+
+E. Learning: controlled tests are excluded from strategy learning. An empty
+   ranking is expected until sufficient completed, attributed live evidence exists.
+
+8. GET THE OPERATOR AUTH TOKEN — TERMINAL C
+------------------------------------------
+cd /Users/nishchay/Documents/dsop_re
+cat data/control.token
+
+Copy the printed token. Do not post it in chat or use it as a decoy password.
+In the dashboard:
+  System -> Operator access -> paste token -> Unlock controls.
+The top-right indicator changes from Read only to Operator.
+The operator cookie expires after one hour; unlock again when needed.
+
+The token authorizes start/stop controls. Viewing Traffic, Detections and
+Sessions does not require operator login. This token is not your Mac password.
+
+9. START HONEYPOTS FROM THE UI
+-----------------------------
+Open Honeypots.
+Click "Start for local test" on each service you want to use.
+Wait for its state to become Listening.
+
+Web application:        127.0.0.1:8081
+SSH virtual shell:      127.0.0.1:2222
+Database-style service: 127.0.0.1:3307
+
+A qualifying detection may already have started the web service automatically.
+No existing client connection is automatically redirected to a decoy. Connect
+to its port explicitly to create interactions.
+
+10. CONNECT TO THE WEB HONEYPOT
+------------------------------
+Open this address in your browser:
+http://127.0.0.1:8081/login
+
+Enter fictional values, for example user demo and password test-only.
+Submit the form. A simulated denial is expected; a real account is not created.
+
+Or use Terminal C:
+curl -i http://127.0.0.1:8081/login
+curl -i -X POST http://127.0.0.1:8081/login --data-urlencode 'user=demo' --data-urlencode 'password=test-only'
+
+The requests are logged as interactions. Separate HTTP connections can create
+separate sessions. Honeypot ports are excluded from the main detection sensor
+to avoid recursive alerts, so use Sessions to inspect these requests.
+
+11. CONNECT TO THE SSH HONEYPOT — TERMINAL C
+-------------------------------------------
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p 2222 analyst@127.0.0.1
+
+On a first connection SSH may ask to trust the local host key. You can compare
+its displayed SHA256 fingerprint with the project key using another Terminal:
+ssh-keygen -lf /Users/nishchay/Documents/dsop_re/data/ssh_host_key
+
+After verifying the local fingerprint, accept the key prompt. If SSH instead
+reports a CHANGED key, investigate it rather than bypassing the warning.
+Use the fictional password test-only (not your Mac password or operator token).
+
+Inside the decoy shell, enter these commands one at a time:
+whoami
+id
+pwd
+ls
+uname -a
+cat welcome.txt
+help
+exit
+
+The shell responds with fixed fictional content. Commands are not executed
+on your Mac. After exit, inspect the completed SSH session in the dashboard.
+
+12. CONNECT TO THE DATABASE HONEYPOT — TERMINAL C
+------------------------------------------------
+
+
+After the DSOF DATABASE LINE EMULATOR banner, type one line at a time:
+HELP
+AUTH demo test-only
+TABLES
+SELECT example
+QUIT
+
+Expected responses include table names, "0 rows" and "BYE".
+This is a line-protocol emulator; a PostgreSQL or MySQL client will not work.
+No SQL is executed against a real database.
+
+To automate actual SSH/database protocol checks instead:
+cd /Users/nishchay/Documents/dsop_re
+.venv-mac/bin/python tools/verify_services.py
+
+Expected: ssh PASS and database PASS. This script authenticates locally using
+the saved operator token, starts listeners and makes real protocol connections.
+Saved evidence: validation/macos-services.json
+
+13. FIND YOUR MANUAL HONEYPOT CONNECTIONS
+----------------------------------------
+Sessions -> Origin -> All evidence -> click the newest session ID.
+Unregistered browser/SSH/nc connections may be stored as live/unattributed,
+so they will not necessarily appear under Controlled tests.
+
+Inspect service, remote address, timestamps, interaction count, state,
+association, interactions, and evaluation. Session DSI is finalized when the
+connection closes; type exit/QUIT or close the client before checking it.
+A manually started service without a matching alert cannot train strategy selection.
+
+14. OPTIONAL: SEND A REQUEST YOURSELF USING CURL
+------------------------------------------------
+This is useful when you want to manually type the indicator rather than have
+fresh_test.py send it. Use a temporary harmless local target on port 9090.
+
+In a NEW Terminal D:
+cd /Users/nishchay/Documents/dsop_re
+mkdir -p data/manual-http-target
+.venv-mac/bin/python -m http.server 9090 --bind 127.0.0.1 --directory data/manual-http-target
+
+This serves only the empty demonstration directory. A 404 response is fine:
+the detector examines the incoming request, not whether exploitation succeeded.
+If port 9090 is occupied, stop and identify the existing service; do not kill
+an unknown process. You can use the controlled scripts in step 6 instead.
+
+In Terminal C, register a two-minute test correlation ID. Paste this whole block:
+
+.venv-mac/bin/python - <<'PY'
+from pathlib import Path
+import uuid
+import requests
+root = Path('/Users/nishchay/Documents/dsop_re')
+test_id = str(uuid.uuid4())
+client = requests.Session()
+client.trust_env = False
+response = client.post('http://127.0.0.1:5050/api/tests/register',
+    json={'test_id': test_id, 'target_port': 9090},
+    headers={'Authorization': 'Bearer ' + (root/'data/control.token').read_text().strip()},
+    timeout=5)
+response.raise_for_status()
+(root/'data/manual-test-id.txt').write_text(test_id)
+print('Registered controlled test for two minutes:', test_id)
+PY
+
+Now send ONE of these requests within two minutes:
+
+SQL injection indicator:
+curl -G 'http://127.0.0.1:9090/search' -H "X-DSOF-Test-ID: $(cat data/manual-test-id.txt)" --data-urlencode "q=' OR 1=1 --"
+
+XSS indicator:
+curl -G 'http://127.0.0.1:9090/search' -H "X-DSOF-Test-ID: $(cat data/manual-test-id.txt)" --data-urlencode 'q=<script>alert(1)</script>'
+
+Benign control:
+curl -G 'http://127.0.0.1:9090/search' -H "X-DSOF-Test-ID: $(cat data/manual-test-id.txt)" --data-urlencode 'q=ordinary books'
+
+Wait a few seconds for flow finalization, then inspect Traffic and Detections
+under Controlled tests. Rerun the registration block for a fresh test ID when
+starting another demonstration, or whenever the two-minute registration expires.
+
+After an ATTACK alert appears and Web shows Listening, make the follow-up decoy
+connection using the same test ID:
+curl 'http://127.0.0.1:8081/login' -H "X-DSOF-Test-ID: $(cat data/manual-test-id.txt)"
+
+Then inspect Sessions -> Controlled tests. This follow-up creates real honeypot
+engagement. Sending only the first request creates detection evidence, not a
+honeypot interaction. Do not expect the benign request to create an attack alert.
+Stop Terminal D's demonstration server with Ctrl+C when finished.
+
+15. UNDERSTAND SCORES AND LABELS
+-------------------------------
+DSI = 0.35 E + 0.30 I + 0.20 D + 0.15 P, on a 0-100 scale.
+E: session duration and number of actions.
+I: diversity and depth of recorded actions.
+D: observed connection-share proxy within configured capture/protected-port scope.
+P: prior same-source/same-origin sessions within 24 hours.
+
+D is not proof that an attack was prevented. An unavailable total score means
+required telemetry is missing; it is not silently replaced by zero.
+Repeated localhost tests can have high P because every test uses the same IP.
+
+The behavior tier uses ten minutes of source activity:
+Beginner: fewer than five destination ports and ten flows.
+Intermediate: at least five destination ports OR ten flows.
+Advanced: at least twenty destination ports AND three destinations.
+Repeated test scripts use new temporary ports and can raise this tier. It does
+not measure a person's expertise. It is independent of ML classification.
+
+The supplied flow model's 97.13% result is a reconstructed offline dataset result.
+The HTTP model is trained on project-authored synthetic strings. Its held-out
+synthetic results are documented in docs/HTTP_CONTENT_ML.md. Neither figure is
+proof of live real-world accuracy. Prediction probabilities are uncalibrated.
+
+16. SAVE EVIDENCE
+-----------------
+Click Export snapshot in the dashboard to download recent retained evidence.
+The snapshot is bounded recent history, not a complete database backup.
+
+Reports and guides:
+validation/http-ml-live.json
+validation/macos-live-verification.json
+validation/macos-services.json
+docs/VALIDATION_REPORT.md
+docs/HTTP_CONTENT_ML.md
+
+Optional regression checks (use a separate session from your demonstration):
+sh tools/test_local.sh
+
+Tests create real local socket traffic. Stop capture beforehand if you do not
+want that test traffic collected; restart the helper afterward. Tests use
+isolated databases for assertions.
+
+17. SHUT DOWN CLEANLY
+--------------------
+1. Ctrl+C in the repeating-test Terminal, if one is running.
+2. Exit SSH, QUIT the database client, and stop any temporary HTTP server.
+3. In the authenticated dashboard, click Honeypots -> Stop all listeners.
+4. Ctrl+C in Terminal B to stop capture.
+5. Ctrl+C in Terminal A to stop the backend.
+
+Stopping listeners does not disable detection policy: new qualifying traffic
+can deploy a listener again while the backend and capture remain active.
+Saved SQLite records remain after shutdown. Restart using steps 2 and 3.
+
+QUICK TROUBLESHOOTING
+---------------------
+Buttons disabled: System -> Operator access -> unlock with data/control.token.
+Waiting for capture helper: start/restart Terminal B's capture command.
+503 from a test: check readiness; the backend can run while capture is unavailable.
+Connection refused on 8081/2222/3307: start that honeypot and wait for Listening.
+No new Traffic row: wait for the idle timeout and check the Origin filter.
+No HTTP ML result: old evidence, non-HTTP flow, or unsupported/incomplete parsing.
+Only flow ML says BENIGN: inspect the separate HTTP ML prediction.
+No session after an alert: connect to the decoy; there is no automatic redirection.
+No learning rankings: controlled tests and unattributed sessions do not train it.
+Another instance/port in use: use the existing backend; do not launch a duplicate.
