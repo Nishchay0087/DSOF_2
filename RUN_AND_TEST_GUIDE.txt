@@ -1,6 +1,6 @@
 DSOF — COMPLETE MAC STARTUP AND DEMONSTRATION GUIDE
 ==================================================
-Project: /Users/nishchay/Documents/dsop_re
+Project: this repository checkout
 Dashboard: http://127.0.0.1:5050/
 
 Copy only the command lines into Terminal, not the explanations.
@@ -20,7 +20,7 @@ Do not start a second backend over the existing one.
 
 2. START THE BACKEND — TERMINAL A
 --------------------------------
-cd /Users/nishchay/Documents/dsop_re
+# From the repository root
 sh tools/run_local.sh run
 
 Expected: Uvicorn running on http://127.0.0.1:5050
@@ -28,7 +28,7 @@ Keep this Terminal open. It will not return to the command prompt while running.
 
 3. START PACKET CAPTURE — TERMINAL B
 -----------------------------------
-cd /Users/nishchay/Documents/dsop_re
+# From the repository root
 sh tools/capture_macos.sh
 
 Enter your Mac administrator password if requested. Terminal does not display
@@ -44,7 +44,7 @@ then start it again. If capture exits, inspect its final Terminal error.
 
 4. CHECK READINESS — TERMINAL C
 -------------------------------
-cd /Users/nishchay/Documents/dsop_re
+# From the repository root
 sh tools/run_local.sh check
 
 Expected: "ready": true.
@@ -124,7 +124,7 @@ E. Learning: controlled tests are excluded from strategy learning. An empty
 
 8. GET THE OPERATOR AUTH TOKEN — TERMINAL C
 ------------------------------------------
-cd /Users/nishchay/Documents/dsop_re
+# From the repository root
 cat data/control.token
 
 Copy the printed token. Do not post it in chat or use it as a decoy password.
@@ -172,7 +172,7 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p 2222 anal
 
 On a first connection SSH may ask to trust the local host key. You can compare
 its displayed SHA256 fingerprint with the project key using another Terminal:
-ssh-keygen -lf /Users/nishchay/Documents/dsop_re/data/ssh_host_key
+ssh-keygen -lf data/ssh_host_key
 
 After verifying the local fingerprint, accept the key prompt. If SSH instead
 reports a CHANGED key, investigate it rather than bypassing the warning.
@@ -207,7 +207,7 @@ This is a line-protocol emulator; a PostgreSQL or MySQL client will not work.
 No SQL is executed against a real database.
 
 To automate actual SSH/database protocol checks instead:
-cd /Users/nishchay/Documents/dsop_re
+# From the repository root
 .venv-mac/bin/python tools/verify_services.py
 
 Expected: ssh PASS and database PASS. This script authenticates locally using
@@ -231,7 +231,7 @@ This is useful when you want to manually type the indicator rather than have
 fresh_test.py send it. Use a temporary harmless local target on port 9090.
 
 In a NEW Terminal D:
-cd /Users/nishchay/Documents/dsop_re
+# From the repository root
 mkdir -p data/manual-http-target
 .venv-mac/bin/python -m http.server 9090 --bind 127.0.0.1 --directory data/manual-http-target
 
@@ -246,7 +246,7 @@ In Terminal C, register a two-minute test correlation ID. Paste this whole block
 from pathlib import Path
 import uuid
 import requests
-root = Path('/Users/nishchay/Documents/dsop_re')
+root = Path.cwd()
 test_id = str(uuid.uuid4())
 client = requests.Session()
 client.trust_env = False

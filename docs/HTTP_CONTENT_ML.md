@@ -55,7 +55,7 @@ TLS interception and encrypted HTTPS inspection are not implemented.
 Keep the backend and capture helper running, then execute:
 
 ```sh
-cd /Users/nishchay/Documents/dsop_re
+# From the repository root
 .venv-mac/bin/python tools/verify_http_ml.py
 ```
 

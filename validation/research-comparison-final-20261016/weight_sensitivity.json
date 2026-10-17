@@ -1,0 +1,866 @@
+[
+  {
+    "class": "web",
+    "weights": "equal",
+    "values": {
+      "engagement": 0.25,
+      "intelligence": 0.25,
+      "diversion": 0.25,
+      "persistence": 0.25
+    },
+    "arm_means": [
+      43.96852494340804,
+      77.10802105893501,
+      77.1172222900517
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "original",
+    "values": {
+      "engagement": 0.35,
+      "intelligence": 0.3,
+      "diversion": 0.2,
+      "persistence": 0.15
+    },
+    "arm_means": [
+      45.50558227815797,
+      79.98377960358414,
+      79.98930034225417
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "engagement-0.10",
+    "values": {
+      "engagement": 0.16666666666666666,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      45.27087920816829,
+      77.64209778019317,
+      77.65232137032282
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "engagement-0.05",
+    "values": {
+      "engagement": 0.2105263157894737,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      44.58542959513658,
+      77.36100476900465,
+      77.37069027544328
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "engagement+0.05",
+    "values": {
+      "engagement": 0.2857142857142857,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      43.41037311565364,
+      76.87913103553862,
+      76.88789411279262
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "engagement+0.10",
+    "values": {
+      "engagement": 0.3181818181818181,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      42.90296236314964,
+      76.6710491960874,
+      76.67941395164802
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "intelligence-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.16666666666666666,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      42.56502771489782,
+      74.8644678432611,
+      74.87469143339078
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "intelligence-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2105263157894737,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      43.3037104667453,
+      76.04528532519474,
+      76.05497083163337
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "intelligence+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.2857142857142857,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      44.57002375562669,
+      78.06954386565238,
+      78.07830694290638
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "intelligence+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.3181818181818181,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      45.11684085764367,
+      78.94365550812272,
+      78.95202026368335
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "diversion-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.16666666666666666,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      39.55391660378671,
+      75.31179927725921,
+      75.32202286738888
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "diversion-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2105263157894737,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      41.87739467727162,
+      76.25717916235173,
+      76.26686466879036
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "diversion+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.2857142857142857,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      45.86049994610289,
+      77.87783039393891,
+      77.8865934711929
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "diversion+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.3181818181818181,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      47.58047722128003,
+      78.57765706212427,
+      78.5860218176849
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "persistence-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.16666666666666666
+    },
+    "arm_means": [
+      48.48427624677933,
+      80.6137193350265,
+      80.61985348910432
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "persistence-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2105263157894737
+    },
+    "arm_means": [
+      46.10756503447865,
+      78.76861497918885,
+      78.77636338433977
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "persistence+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.2857142857142857
+    },
+    "arm_means": [
+      42.03320295624891,
+      75.60557894061006,
+      75.61609463331487
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "web",
+    "weights": "persistence+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.3181818181818181
+    },
+    "arm_means": [
+      40.27381933155879,
+      74.23972246940559,
+      74.25143312719048
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "equal",
+    "values": {
+      "engagement": 0.25,
+      "intelligence": 0.25,
+      "diversion": 0.25,
+      "persistence": 0.25
+    },
+    "arm_means": [
+      47.05172814081515,
+      76.28317366350389,
+      76.33007641643644
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "original",
+    "values": {
+      "engagement": 0.35,
+      "intelligence": 0.3,
+      "diversion": 0.2,
+      "persistence": 0.15
+    },
+    "arm_means": [
+      49.200334827178075,
+      77.73812862813729,
+      77.76627027989683
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "engagement-0.10",
+    "values": {
+      "engagement": 0.16666666666666666,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      47.26638426237481,
+      75.90004468857241,
+      75.95215885849748
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "engagement-0.05",
+    "values": {
+      "engagement": 0.2105263157894737,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      47.15340735629077,
+      76.1016915174837,
+      76.1510628363601
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "engagement+0.05",
+    "values": {
+      "engagement": 0.2857142857142857,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      46.95973266014672,
+      76.44737179561736,
+      76.49204108412457
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "engagement+0.10",
+    "values": {
+      "engagement": 0.3181818181818181,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      46.87610040499361,
+      76.59664282481144,
+      76.63928169111377
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "intelligence-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.16666666666666666,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      46.72414237868351,
+      76.42574851500432,
+      76.47786268492939
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "intelligence-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2105263157894737,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      46.896555937700164,
+      76.35070911947776,
+      76.40008043835415
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "intelligence+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.2857142857142857,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      47.19212203887157,
+      76.22207015571799,
+      76.26673944422518
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "intelligence+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.3181818181818181,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      47.319752855286495,
+      76.16652151227625,
+      76.20916037857857
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "diversion-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.16666666666666666,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      42.401179415720534,
+      74.15473175398755,
+      74.20684592391262
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "diversion-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2105263157894737,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      44.84883663945455,
+      75.2749643379435,
+      75.3243356568199
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "diversion+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.2857142857142857,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      49.04482045156998,
+      77.19536305329657,
+      77.24003234180377
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "diversion+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.3181818181818181,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      50.856722552256194,
+      78.02462613492632,
+      78.06726500122866
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "persistence-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.16666666666666666
+    },
+    "arm_means": [
+      51.81520650648176,
+      78.65216969645125,
+      78.68343819840628
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "persistence-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2105263157894737
+    },
+    "arm_means": [
+      49.30811262981512,
+      77.40532967911052,
+      77.44482673421163
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "persistence+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.2857142857142857
+    },
+    "arm_means": [
+      45.01023741267232,
+      75.26788964938358,
+      75.32149279559222
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "ssh",
+    "weights": "persistence+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.3181818181818181
+    },
+    "arm_means": [
+      43.1543367507243,
+      74.34490418200149,
+      74.40459859482473
+    ],
+    "best_arm": 2
+  },
+  {
+    "class": "scan",
+    "weights": "equal",
+    "values": {
+      "engagement": 0.25,
+      "intelligence": 0.25,
+      "diversion": 0.25,
+      "persistence": 0.25
+    },
+    "arm_means": [
+      54.439165871209795,
+      56.41299461404539,
+      56.38919680173544
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "original",
+    "values": {
+      "engagement": 0.35,
+      "intelligence": 0.3,
+      "diversion": 0.2,
+      "persistence": 0.15
+    },
+    "arm_means": [
+      49.75344671874639,
+      57.06555306806276,
+      57.05127438067679
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "engagement-0.10",
+    "values": {
+      "engagement": 0.16666666666666666,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      55.555584007258744,
+      54.47120980577776,
+      54.444767792100045
+    ],
+    "best_arm": 0
+  },
+  {
+    "class": "scan",
+    "weights": "engagement-0.05",
+    "values": {
+      "engagement": 0.2105263157894737,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      54.9679955146014,
+      55.49320181012915,
+      55.468151481381824
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "engagement+0.05",
+    "values": {
+      "engagement": 0.2857142857142857,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      53.960700955760245,
+      57.24518810330294,
+      57.2225235201506
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "engagement+0.10",
+    "values": {
+      "engagement": 0.3181818181818181,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      53.5257328508061,
+      58.001727638991625,
+      57.98009326416439
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "intelligence-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.16666666666666666,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      57.71018430134421,
+      59.90332734893933,
+      59.8768853352616
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "intelligence-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2105263157894737,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      55.98859565390504,
+      58.066310120047774,
+      58.041259791300455
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "intelligence+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.2857142857142857,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      53.037300829723605,
+      54.91713772766227,
+      54.89447314450993
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "intelligence+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.3181818181818181,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      51.76287806473617,
+      53.55726783095035,
+      53.53563345612313
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "diversion-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.16666666666666666,
+      "persistence": 0.2777777777777778
+    },
+    "arm_means": [
+      50.573147264307174,
+      52.259005744617724,
+      52.23256373093999
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "diversion-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2105263157894737,
+      "persistence": 0.2631578947368421
+    },
+    "arm_means": [
+      52.60789389951908,
+      54.44531567589544,
+      54.420265347148124
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "diversion+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.2857142857142857,
+      "persistence": 0.23809523809523808
+    },
+    "arm_means": [
+      56.09603098845376,
+      58.19327555808582,
+      58.17061097493348
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "diversion+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.3181818181818181,
+      "persistence": 0.22727272727272727
+    },
+    "arm_means": [
+      57.60227200413011,
+      59.81171277994076,
+      59.79007840511352
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "persistence-0.10",
+    "values": {
+      "engagement": 0.2777777777777778,
+      "intelligence": 0.2777777777777778,
+      "diversion": 0.2777777777777778,
+      "persistence": 0.16666666666666666
+    },
+    "arm_means": [
+      53.917747911929034,
+      59.01843555684676,
+      59.00257034864013
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "persistence-0.05",
+    "values": {
+      "engagement": 0.2631578947368421,
+      "intelligence": 0.2631578947368421,
+      "diversion": 0.2631578947368421,
+      "persistence": 0.2105263157894737
+    },
+    "arm_means": [
+      54.19217841681364,
+      57.6471508501092,
+      57.62711058711134
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "persistence+0.05",
+    "values": {
+      "engagement": 0.23809523809523808,
+      "intelligence": 0.23809523809523808,
+      "diversion": 0.23809523809523808,
+      "persistence": 0.2857142857142857
+    },
+    "arm_means": [
+      54.66263071090153,
+      55.296377067130514,
+      55.26917956734771
+    ],
+    "best_arm": 1
+  },
+  {
+    "class": "scan",
+    "weights": "persistence+0.10",
+    "values": {
+      "engagement": 0.22727272727272727,
+      "intelligence": 0.22727272727272727,
+      "diversion": 0.22727272727272727,
+      "persistence": 0.3181818181818181
+    },
+    "arm_means": [
+      54.865780565166766,
+      54.28127020629882,
+      54.25098208154069
+    ],
+    "best_arm": 0
+  }
+]

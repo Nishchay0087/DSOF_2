@@ -1,0 +1,57 @@
+{
+  "output": "/Users/nishchay/Documents/dsop_re/validation/research-comparison-final-20261016",
+  "train": 200,
+  "heldout": 50,
+  "pilot": 10,
+  "workers": 6,
+  "seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "classes": [
+    "web",
+    "ssh",
+    "scan"
+  ],
+  "agent": {
+    "continue_success": 0.9,
+    "continue_failure": 0.25,
+    "follow_breadcrumb": 0.65,
+    "visit_reference_after_stop": 0.35,
+    "max_actions": 12,
+    "action_delay_seconds": 0.002
+  },
+  "epsilon": 0.1,
+  "alpha": 0.1,
+  "primary_weights": {
+    "engagement": 0.25,
+    "intelligence": 0.25,
+    "diversion": 0.25,
+    "persistence": 0.25
+  },
+  "python": "3.12.14",
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "collection_started_utc": "2026-10-16T11:11:38.672828+00:00",
+  "source_hashes": {
+    "research/metrics.py": "3975e5b714c57b34f073aa1317867619ae3874e508e65dabc5970d4762bfc966",
+    "research/__init__.py": "1b6ac4b1308a5bd24c7443f16753b50f306f2f2f6b237b00fe88e25299075914",
+    "research/policies.py": "ff2398fcf0cffb01ffdb231c0e7e251ea9d3ac03751681c6c8c9b7665e34faa2",
+    "research/lab.py": "39ec8669f23e5e307b897ecfbb1aad6b29e3029170f3336f49c274aa5e38f87e",
+    "tools/research/run_comparison.py": "962d2997326011dd84e87f00f0a0ce5af322267d40db881af96efaf8b879d446"
+  },
+  "elapsed_seconds": 63.61497329199847,
+  "evidence_hashes": {
+    "summary.json": "aeff41fd645fc11cf52089bedc72857e0aea674f343d65b45d74a88940089e63",
+    "decisions.sqlite3": "e1ffa060ce84249b2ac1430c6b7b819cecfa42ebb22cc8a919bb098c428403a7",
+    "pilot_caps.json": "27e87fdb5432c4bfa9a724e22767f0139dfd5d564c2393c772a7801b1b1db146",
+    "server_counters.json": "ccb70fb3e0e72e4dcd7ea8e593798695943851838be04836e61de3bf7f982639",
+    "REPORT.md": "080fff6dfd92eb20063ece0c0f434ffa592c51e6e0440c749cda133912e8d84a",
+    "transport.log": "12c73b358e3f112407fb122ce42959f5d0a76056f3b03ead5757a651fe1b3b92",
+    "weight_sensitivity.json": "3f290c34ef3b139b2abd2b6cfc22e43daebfff18ebe5c597fd2d6f1e61b29a89",
+    "seed_results.json": "b47915592daa75c306a82114466b7da41fc85da61cf17d2ff12c9e3fec09b30b",
+    "outcomes.jsonl": "4a97442844ed27e1d747c6bb4d7508393f606b2705c8f3800ea3e9b885b6bb18"
+  }
+}

@@ -58,3 +58,35 @@ desktop.ini
 *.swp
 *.swo
 *~
+
+# Private human-study observations and completed response sheets
+/research/study/*collection/sessions/
+/research/study/*collection/human_results.json
+/research/study/*collection/responses.csv
+/research/study/*collection/ahp.csv
+/research/study/human-pilot-caps.json
+/research/study/web-pilot-v2/sessions/
+/research/study/ahp-evaluators/
+
+# Local authoring, paper exports and intermediate experiments
+/tmp/
+/output/
+/validation/research-smoke*/
+/validation/research-comparison-20261016/
+
+# The audited benchmark ledger contains scripted localhost data, not participants
+!/validation/research-comparison-final-20261016/decisions.sqlite3
+
+# Runtime bundles intentionally distributed with the application
+!/artifacts/http_content/model.joblib
+!/artifacts/traindata/model.ubj
+!/artifacts/traindata/preprocessing.joblib
+!/traindata/xgboost_cicids2017_model.pkl
+!/traindata/confusion_matrix.png
+!/validation/traindata/reconstructed_preprocessing.joblib
+# Required by the immutable benchmark's evidence-hash audit
+!/validation/research-comparison-final-20261016/transport.log
+# New test execution reports are local; existing historical reports stay tracked
+/validation/*tests.xml
+/validation/ahp-and-human-tools-tests.xml
+/validation/human-web-v2-tests.xml
